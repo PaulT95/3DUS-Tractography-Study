@@ -1,0 +1,158 @@
+---
+title: "Statistical analysis (main dependent variable)"
+output:
+  html_document:
+    df_print: paged
+---
+<font size="4"> Brent J. Raiteri (on data from Paolo Tecchio's hybrid 3D fascicle tractography approach) <br>
+2026-02-27 </font>
+
+## Muscle volume from 3DUS
+Fixed effects were fitted using a linear mixed-effects model. Model-based standard errors and p-values are presented. Sandwich variance estimation-based standard errors and p-values were also produced; these do not assume normality of the data.
+
+```{r setup_global, include=FALSE}
+
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, digits = 4)
+
+```
+
+```{r setup_libraries,include=FALSE}
+
+# Libraries
+library(tidyverse) #also loads tibble and ggplot2
+library(lme4)
+library(flexplot)
+library(parameters)
+library(clubSandwich)
+library(lmerTest)
+library(emmeans) # posthoc tests
+```
+```{r get_data,include=FALSE}
+# Get data
+d = read.csv('C:\\Users\\Brent\\Desktop\\Research\\PhD\\Paolo\\tecchioNature.csv')
+
+# Specify factors
+d <- d %>%
+  mutate(
+    id      = as.factor(id),
+    angle   = as.factor(angle),
+    leg = as.factor(leg),
+    volus = as.numeric(volus),
+    voldti = as.numeric(voldti),
+    lenus = as.numeric(lenus),
+    lendti = as.numeric(lendti)
+  )
+
+```
+
+```{r boxplot, echo=FALSE}
+
+## Graphical display
+ggplot(d, aes(x = angle, y = volus, fill = leg)) +
+       geom_boxplot() +
+       #facet_wrap(~time, labeller = as_labeller(c("1" = "PRE", "2" = #"POST"))) +  # Adds the 4th variable (time) as separate panels
+       labs(x = "Plantar flexion angle (deg)",
+                       y = "Muscle volume (mL)",
+                       fill = "Leg", # Label the legend
+                       title = "Graphical display") + 
+  scale_fill_discrete(labels = c("Left", "Right")) + 
+  # Use scale_x_discrete() to define the new labels for the x-axis
+  scale_x_discrete(
+    labels = c(
+      "1" = expression("15"),
+      "2" = expression("35")
+    )
+  )
+
+```
+
+## Fixed-effects model with interaction 
+This fixed-effects model fits the factors plantar flexion angle and leg with random intercepts and fixed slopes and a fixed angle x leg interaction. <br> 
+<br>
+We first compared fitting the model by REML vs. ML, and REML resulted in a better fit:
+```{r fit_interaction_model, result="hide", echo=FALSE}
+
+interaction_REML <- lmer(volus ~ angle * leg + (1|id), data = d, REML=TRUE)
+
+interaction_ML <- lmer(volus ~ angle * leg + (1|id), data = d, REML=FALSE)
+
+model.comparison(interaction_REML,interaction_ML)
+
+#interaction_TrT <- lmer(torque ~ training * time + condition + (1|id), data = d, REML=TRUE)
+
+#model.comparison(interaction_REML,interaction_TrT)
+
+```
+## Model summary
+```{r summary_interaction_model, echo=FALSE}
+summary(interaction_REML)
+```
+## Model- & sandwich-based standard errors and p-values
+The full cluster-robust variance-covariance matrix was calculated, which includes the variances (SEs) and covariances (how much the estimates correlate with each other):
+```{r comparison_interaction_model,echo=FALSE}
+
+# Assuming 'interaction_REML' is your fitted lmer model object
+# --- 1. Extract Model-Based Results using the parameters package ---
+model_results_raw <- model_parameters(interaction_REML) %>%
+  as_tibble() %>%
+  filter(!str_detect(Parameter, "^SD \\("))
+
+# Use the correct names found: "Coefficient" and "SE"
+model_results <- model_results_raw %>%
+  select(term = Parameter, 
+         estimate = Coefficient, # Corrected column name
+         `Model-based s.e.` = SE,         # Corrected column name
+         `Model-based p-value` = p)
+  
+# --- 2. Calculate Sandwich (Robust) Standard Errors ---
+sandwich_vcov = vcovCR(interaction_REML, type="CR2")
+
+# --- 3. Calculate Sandwich P-values and SEs using coef_test ---
+# coeftest automatically uses the model's degrees of freedom
+sandwich_test_results <- coef_test(interaction_REML, vcov = sandwich_vcov)
+
+# Select the columns by their position: 
+# Column 3 is 'SE', Column 7 is 'p-val (Satt)', and Column 2 is the term name ('beta')
+sandwich_results <- as_tibble(sandwich_test_results) %>%
+  select(term = 2,              # Selects the 2nd column for the term names
+         `Sandwich s.e.` = 3,   # Selects the 3rd column for SE
+         `Sandwich p-value` = 7) # Selects the 7th column for p-value
+
+# Ensure the 'term' column is replaced by 'estimate'
+sandwich_results <- rename(sandwich_results, estimate = term)
+
+# --- 4. Combine into a Single Table ---
+final_table <- model_results %>%
+  left_join(sandwich_results, by = "estimate") %>%
+  select(term, estimate, `Model-based s.e.`, `Model-based p-value`, `Sandwich s.e.`, `Sandwich p-value`)
+
+# --- 5. Display the Table ---
+cat("Model- & sandwich-based standard errors and p-values\n")
+cat("Click on the arrow for sandwich-based p-values.\n\n")
+
+# Print with Inf width/n for full display in console/notebook
+print(final_table, n = Inf, width = Inf, digits=4)
+
+```
+
+## Estimated marginal means
+Estimated marginal means (EMMs) for the fixed-effects model with a fixed angle x leg interaction are reported below, which explicitly use cluster-robust standard errors (accounting for non-independent data or heteroskedasticity). This approach was used to ensure that the confidence intervals and subsequent p-values for the EMMs are more accurate and reliable. <br>
+
+```{r posthoc_comparisons,echo=FALSE}
+
+# Generate EMMs with nesting
+ems <- emmeans(interaction_REML, ~ angle | leg, 
+                   vcov = sandwich_vcov, 
+                   lmer.df = "satterthwaite")
+print(ems)
+
+avgLeg <- emmeans(ems, ~ angle)
+print(avgLeg)
+
+avgLeg_comparison <- pairs(avgLeg, reverse = TRUE)
+print(avgLeg_comparison, adjust = "holm")
+
+#indLeg <- pairs(ems)
+#print(indLeg, adjust = "holm")
+
+```
