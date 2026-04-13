@@ -1,0 +1,102 @@
+====================================================================
+   ___  __  __ ____  ___   _____           _       _                
+  / _ \|  \/  |  _ \|_ _| |_   _|__   ___ | |___  | |    ___   __ _ 
+ | | | | |\/| | |_) || |    | |/ _ \ / _ \| / __| | |   / _ \ / _` |
+ | |_| | |  | |  _ < | |    | | (_) | (_) | \__ \ | |__| (_) | (_| |
+  \__\_\_|  |_|_| \_\___|   |_|\___/ \___/|_|___/ |_____\___/ \__, |
+                                                              |___/
+
+====================================================================
+21-10-25 17:07:30 / Starting MuscleBidsAnalysis for directory: 04_merged\sub-LS\ses-V2
+21-10-25 17:07:30 /     - Multiple analysis - starting: 15
+                  /       - Segmentation file used for analysis is: DIX15_seg_auto_megre_dix_outph
+                  /         - Importing and processing the needed segmentation
+                  /         - Calculating the volume of the segmentation
+                  /         - Using the Legs for muscle labeling
+                  /       - Analsysis will be performed for: {DTI15_dwi_dti_l1, DTI15_dwi_dti_l2, DTI15_dwi_dti_l3, DTI15_dwi_dti_md, DTI15_dwi_dti_rd, DTI15_dwi_dti_fa, DTI15_dwi_dti_adci, DTI15_dwi_dti_fri, DTI15_dwi_dti_snr0, DTI15_dwi_dti_trk_leng, DTI15_dwi_dti_trk_ang, DTI15_dwi_dti_trk_seed, DTI15_dwi_dti_trk_dens, DIX15_megre_dix_fatfr}
+                  /       - The types with tract weighting will be: {DTI15_dwi_dti_l1, DTI15_dwi_dti_l2, DTI15_dwi_dti_l3, DTI15_dwi_dti_md, DTI15_dwi_dti_rd, DTI15_dwi_dti_fa, DTI15_dwi_dti_adci, DTI15_dwi_dti_fri, DTI15_dwi_dti_snr0, DTI15_dwi_dti_trk_leng, DTI15_dwi_dti_trk_ang}
+                  /         - Import tract mask: DTI15_dwi_dti_trk_dens
+21-10-25 17:07:32 /       - Starting the data analysis:
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_l1
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_l2
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_l3
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_md
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_rd
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_fa
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_adci
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_fri
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_snr0
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_trk_leng
+                  /         - Processing file with tract weighting: DTI15_dwi_dti_trk_ang
+                  /         - Processing file without tract weighting: DTI15_dwi_dti_trk_seed
+                  /         - Processing file without tract weighting: DTI15_dwi_dti_trk_dens
+                  /         - Processing file without tract weighting: DIX15_megre_dix_fatfr
+21-10-25 17:07:44 /       - Data will be exported to: 05_analysis\sub-LS\ses-V2\
+                  /       - Starting making the images:
+                  /         - Checking the reference file for 2D images: DIX_15_megre_dix_wat
+                  /         - Start making Quant images:
+                  /           - Making image for: DIX_15_megre_dix_fatfr
+                  /           - Making image for: DIX_15_megre_dix_outph
+                  /           - Making image for: DTI_15_dwi_dti_fa
+                  /           - Making image for: DTI_15_dwi_dti_md
+                  /           - Making image for: DTI_15_dwi_dti_rd
+                  /           - Making image for: DTI_15_dwi_dti_snr0
+                  /           - Making image for: DTI_15_dwi_dti_s0
+                  /           - Making image for: DTI_15_dwi_dti_trk_seed
+                  /           - Making image for: DTI_15_dwi_dti_trk_dens
+                  /           - Making image for: DTI_15_dwi_dti_trk_leng
+                  /           - Making image for: DTI_15_dwi_dti_trk_curv
+                  /           - Making image for: DTI_15_dwi_dti_trk_ang
+                  /         - Start making segmentation images:
+                  /           - Making 2D Segment image
+                  /           - Making 3D Segment image
+                  /           - Making 2D Segment grid image
+                  /         - Start making tractography images:
+                  /           - Making 3D tract image
+21-10-25 17:09:14 /       - Finished making the images
+21-10-25 17:09:14 /     - Multiple analysis - starting: 35
+                  /       - Segmentation file used for analysis is: DIX35_seg_auto_megre_dix_outph
+                  /         - Importing and processing the needed segmentation
+                  /         - Calculating the volume of the segmentation
+                  /         - Using the Legs for muscle labeling
+                  /       - Analsysis will be performed for: {DTI35_dwi_dti_l1, DTI35_dwi_dti_l2, DTI35_dwi_dti_l3, DTI35_dwi_dti_md, DTI35_dwi_dti_rd, DTI35_dwi_dti_fa, DTI35_dwi_dti_adci, DTI35_dwi_dti_fri, DTI35_dwi_dti_snr0, DTI35_dwi_dti_trk_leng, DTI35_dwi_dti_trk_ang, DTI35_dwi_dti_trk_seed, DTI35_dwi_dti_trk_dens, DIX35_megre_dix_fatfr}
+                  /       - The types with tract weighting will be: {DTI35_dwi_dti_l1, DTI35_dwi_dti_l2, DTI35_dwi_dti_l3, DTI35_dwi_dti_md, DTI35_dwi_dti_rd, DTI35_dwi_dti_fa, DTI35_dwi_dti_adci, DTI35_dwi_dti_fri, DTI35_dwi_dti_snr0, DTI35_dwi_dti_trk_leng, DTI35_dwi_dti_trk_ang}
+                  /         - Import tract mask: DTI35_dwi_dti_trk_dens
+21-10-25 17:09:15 /       - Starting the data analysis:
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_l1
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_l2
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_l3
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_md
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_rd
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_fa
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_adci
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_fri
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_snr0
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_trk_leng
+                  /         - Processing file with tract weighting: DTI35_dwi_dti_trk_ang
+                  /         - Processing file without tract weighting: DTI35_dwi_dti_trk_seed
+                  /         - Processing file without tract weighting: DTI35_dwi_dti_trk_dens
+                  /         - Processing file without tract weighting: DIX35_megre_dix_fatfr
+21-10-25 17:09:25 /       - Data will be exported to: 05_analysis\sub-LS\ses-V2\
+                  /       - Starting making the images:
+                  /         - Checking the reference file for 2D images: DIX_35_megre_dix_wat
+                  /         - Start making Quant images:
+                  /           - Making image for: DIX_35_megre_dix_fatfr
+                  /           - Making image for: DIX_35_megre_dix_outph
+                  /           - Making image for: DTI_35_dwi_dti_fa
+                  /           - Making image for: DTI_35_dwi_dti_md
+                  /           - Making image for: DTI_35_dwi_dti_rd
+                  /           - Making image for: DTI_35_dwi_dti_snr0
+                  /           - Making image for: DTI_35_dwi_dti_s0
+                  /           - Making image for: DTI_35_dwi_dti_trk_seed
+                  /           - Making image for: DTI_35_dwi_dti_trk_dens
+                  /           - Making image for: DTI_35_dwi_dti_trk_leng
+                  /           - Making image for: DTI_35_dwi_dti_trk_curv
+                  /           - Making image for: DTI_35_dwi_dti_trk_ang
+                  /         - Start making segmentation images:
+                  /           - Making 2D Segment image
+                  /           - Making 3D Segment image
+                  /           - Making 2D Segment grid image
+                  /         - Start making tractography images:
+                  /           - Making 3D tract image
+21-10-25 17:10:40 /       - Finished making the images
