@@ -36,5 +36,9 @@ Contains 3D printable files used in the experimental setup:
 
 ---
 
+### [Supplemental Material](https://github.com/PaulT95/3DUS-Tractography-Study)
+
+Contains word file with the supplemental material supporting the paper and the figures regarding the synthetic and phantom wire validations.
+
 ## Notes
 This repository is intended to support reproducibility and provide access to both data and tools used in the study.
