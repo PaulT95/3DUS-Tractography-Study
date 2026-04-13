@@ -23,12 +23,12 @@ Within the `DTI` folder the entire output (images mostly) from [QMRITool](https:
 
 ---
 
-### [R_Stats]([Data](https://github.com/PaulT95/3DUS-Tractography-Study/tree/main/R_Stats)
+### [R_Stats](https://github.com/PaulT95/3DUS-Tractography-Study/tree/main/R_Stats)
 Contains statistical analysis outputs generated in R.
 
 ---
 
-### [STL]([Data](https://github.com/PaulT95/3DUS-Tractography-Study/tree/main/STL)
+### [STL](https://github.com/PaulT95/3DUS-Tractography-Study/tree/main/STL)
 Contains 3D printable files used in the experimental setup:
 
 - Footplate for controlling ankle joint angles (15° and 35° plantarflexion) used in the study.
