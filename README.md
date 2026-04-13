@@ -13,13 +13,13 @@ Contains the full dataset used for the comparison.
 - Data refer to the tibialis anterior muscle at 15° and 35° plantarflexion  
 - Sample size: N = 5 subjects  
 
-Within the `3DUS` folder, a [MATLAB script](https://github.com/PaulT95/3DUS-Tractography-Study/blob/main/Data/3DUS/Matlab_show/Main.m) is provided to (plug and play):
+Within the `3DUS` folder, along with the data, a [MATLAB script](https://github.com/PaulT95/3DUS-Tractography-Study/blob/main/Data/3DUS/Matlab_show/Main.m) is provided to (plug and play):
 - Load the dataset  
 - Visualize image volumes using a slicer-style viewer  
 - Interact with meshes, image planes, and local 3D fascicle vectors and 3D fascicle paths etc.
 Furthermore, two pdf are avaiable containing the fascicle length distributions of each subjbect's leg at 15° and 35° plantarflexion, respectively. Distribution "line" are generated using [Kernel smoothing function](https://de.mathworks.com/help/stats/ksdensity.html), specifically [here](https://github.com/PaulT95/3DUS-Tractography-Study/blob/main/Data/3DUS/ALL_FL_dist_mean.pdf) the dashed lines represent the mean of each distribution, while [here](https://github.com/PaulT95/3DUS-Tractography-Study/blob/main/Data/3DUS/ALL_FL_dist_median.pdf) they represent the median.
 
-Within the `DTI` folder the entire output (images) from [QMRITool](https://www.qmritools.com/tool/bids/)  for each subject can be found.
+Within the `DTI` folder the entire output (images mostly) from [QMRITool](https://www.qmritools.com/tool/bids/)  for each subject can be found as well as the overall output.
 
 ---
 
