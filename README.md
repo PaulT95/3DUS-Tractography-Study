@@ -2,7 +2,11 @@
 
 This repository contains materials for the validation and comparison of 3D ultrasound (3DUS) tractography against Diffusion Tensor Imaging (DTI).
 
-<img width="3840" height="2160" alt="hhh" src="https://github.com/user-attachments/assets/1e8effda-ead3-4028-ac57-9c32e151622c" />
+<div align="center">
+<img width="3840" height="2160" alt="Example" src="https://github.com/user-attachments/assets/1e8effda-ead3-4028-ac57-9c32e151622c" />
+
+<img width="800" height="450" alt="example_gif" src="https://github.com/user-attachments/assets/84f5e4d6-1c5e-470e-90bf-71f8202c004b" />
+</div>
 
 ## Repository Structure
 
