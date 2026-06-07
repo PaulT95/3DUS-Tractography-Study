@@ -8,7 +8,7 @@ This repository contains materials for the validation and comparison of 3D ultra
   
 ## Example reconstructed 3D vector field 
   
-<img width="1920" height="1080" alt="Example" src="https://github.com/user-attachments/assets/1e8effda-ead3-4028-ac57-9c32e151622c" />
+<img width="3840" height="2160" alt="Example" src="https://github.com/user-attachments/assets/1e8effda-ead3-4028-ac57-9c32e151622c" />
 
 ## Example sagital view of reconstructed 3D fascicles
 <img width="1920" height="1080" alt="Sagitall_fascicle" src="https://github.com/user-attachments/assets/62906c67-c2aa-4589-81e4-82bc44caeb31" />
